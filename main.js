@@ -2,7 +2,7 @@ const electron =require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow, Menu} = electron;
+const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 // Determine the platform that is runing this app
 const platform = process.platform;
@@ -13,7 +13,13 @@ let addWindow;
 // Listen for app to be ready
 app.on('ready', function(){
     //Create new window
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({
+        // specifying node integration as true (wont get js errors )
+        webPreferences: {
+            nodeIntegration: true
+        }
+
+    });
     //Load Html File into window
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'mainWindow.html'),
@@ -39,7 +45,11 @@ function createAddWindow()
     addWindow = new BrowserWindow({
         width: 300,
         height: 200,
-        title: 'Add Item'
+        title: 'Add Item',
+        // specifying node integration as true (wont get js errors )
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
     // Load Html File into window
     addWindow.loadURL(url.format({
@@ -54,6 +64,11 @@ function createAddWindow()
     });
 }
 
+// Catch item:add from view window.
+ipcMain.on('item:add', function(e, item){
+    mainWindow.webContents.send('item:add', item);
+    addWindow.close();
+});
 
 // Create a menu template Array of Objects
 const mainMenuTemplate = [
@@ -62,6 +77,7 @@ const mainMenuTemplate = [
         submenu:[
             {
                 label: 'Add Item',
+                accelerator: platform == 'darwin' ? 'Command+N' : 'Ctrl+N',
                 click(){
                     createAddWindow();
                 }

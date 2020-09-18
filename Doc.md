@@ -83,3 +83,18 @@
 
     we also want reload functionality on development , so we add a new object,
     but all we have to do is set a **role** for it
+
+# 5.Add Item Logic
+
+    We want to get data from addWindow.html to main.js file and handle it
+    there.
+    So what we can do is first we add a script tag to html file,
+    in it we will use **ipcRenderer** from electron module,
+    With a bit of vanila javascript we will get the items from form, then pass
+    it to backend , then we will catch the new item data and use it.For that we
+    will import(destructure) **ipcMain** module from **electron** and the catch
+    the data with it.
+
+    We will set a listener on emited event from browser, we catch it we will
+    send it to main window.Then on main window hmtl file we will catch it in a
+    script tag and add it to window with vanila js.
