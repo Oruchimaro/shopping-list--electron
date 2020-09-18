@@ -98,3 +98,18 @@
     We will set a listener on emited event from browser, we catch it we will
     send it to main window.Then on main window hmtl file we will catch it in a
     script tag and add it to window with vanila js.
+
+# 6. Clearing Items
+
+    First we want to use **Clear Items** menu item to clear all the items on
+    the main window.
+    So on its click event we will add a ipc event without data(not needed) to
+    be caught on main window html file and clear the window items.
+
+
+    For clearing Single items (cause we are not saving them any where), we just
+    need to add logic to script tag on main window, so when double clicked on a
+    item, it will delete it from dom.
+
+        --- If we had saved them, we can use the ipc events to handle the
+        deletion .
