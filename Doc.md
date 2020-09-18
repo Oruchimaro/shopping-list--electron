@@ -46,3 +46,40 @@
         process.platform == 'win32' -> for **windows**
         process.platform == 'linux' -> for **linux**
     ```
+
+# 4.Create a menu Item with another window.
+
+    First we will add a sub menu item called **Add Item** and on its click
+    event we will call to a function for creating a subview.Then we will create
+    a new variable for our new window.
+
+    Then we will create that function and inside it we will add logic for
+    createing a window and a path to a html file for its content.Now we will
+    create that html file.
+
+    Now there is a little bug that if we close the main window the sub window
+    wont close, so for that we will go to our app listener and add a new
+    listener and close all the apps there like this :
+
+    ```JS
+        mainWindow.on('closed', function(){
+            app.quite();
+        });
+    ```
+
+    After this for better performance we need to set addWindow variable that we
+
+
+    created for our subwindow to **NULL** to free memory allocated to it.
+
+### Devloper Tools menu Item
+
+    We want to have devtools menuItem just for when we are developing the app
+    but not on production.
+    So we will use "process.env.NODE_ENV" to determine which enviorment we are
+    on, if it is not production then push a menu item to menu template.
+
+    Then set click event  and a hotkey for it.
+
+    we also want reload functionality on development , so we add a new object,
+    but all we have to do is set a **role** for it
