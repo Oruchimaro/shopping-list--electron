@@ -22,7 +22,7 @@ app.on('ready', function(){
     });
     //Load Html File into window
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'mainWindow.html'),
+        pathname: path.join(__dirname, 'view/mainWindow.html'),
         protocol: 'file:',
         slashes: true
     })); //this is: (file://dirname/mainWindow.html
@@ -53,7 +53,7 @@ function createAddWindow()
     });
     // Load Html File into window
     addWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'addWindow.html'),
+        pathname: path.join(__dirname, 'view/addWindow.html'),
         protocol: 'file:',
         slashes: true
     })); 

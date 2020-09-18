@@ -4,7 +4,7 @@
   "description": "Shopping list desktop app",
   "main": "main.js",
   "scripts": {
-    "start" : "electron ."
+    "start": "electron ."
   },
   "keywords": [
     "electron",
@@ -13,6 +13,7 @@
   "author": "Amir Daneshkar, Brad Traversy",
   "license": "MIT",
   "dependencies": {
-    "electron": "^10.1.2"
+    "electron": "^10.1.2",
+    "materialize-css": "^1.0.0-rc.2"
   }
 }
