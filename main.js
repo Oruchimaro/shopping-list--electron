@@ -7,6 +7,9 @@ const {app, BrowserWindow, Menu, ipcMain} = electron;
 // Determine the platform that is runing this app
 const platform = process.platform;
 
+// Set ENV To Production For Packaging
+process.env.NODE_ENV = 'production';
+
 let mainWindow;
 let addWindow;
 

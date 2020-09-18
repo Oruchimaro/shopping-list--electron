@@ -14,4 +14,9 @@
         $ npm install
 
         $ npm start (will start it)
+
+        # To Run Installer maker for linux
+        $ npm run package-linux
+
+        npm run create-debian-installer
     ```

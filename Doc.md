@@ -113,3 +113,25 @@
 
         --- If we had saved them, we can use the ipc events to handle the
         deletion .
+
+# 7.Packaging
+
+    First we will set ENV var to production, Then we will go for packging based on this tutorial
+
+    [Packager Tutorial](https://www.christianengvall.se/electron-packager-tutorial/)
+
+
+    Basicly we install **electron-packager** as a dev dependency,
+    Add Icons and correect package name(mac),
+    then run their script.
+
+
+    1.npm run package-mac
+
+    2.npm run package-win
+
+    3.npm run package-linux
+
+Here I added the packager for debian installer so after that we can run
+
+    4.npm run create-debian-installer
