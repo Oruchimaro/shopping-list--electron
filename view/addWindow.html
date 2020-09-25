@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Add Item</title>
-    <link rel="stylesheet" href="./css/materialize.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/materialize.css" />
+  </head>
+  <body>
     <div class="container">
-        <form>
-            <div>
-                <label class="">Enter Item</label>
-                <input type="text" id="item" autofocus>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit">Add</button>
-        </form> 
+      <form>
+        <div>
+          <label class="">Enter Item</label>
+          <input type="text" id="item" autofocus />
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">Add</button>
+      </form>
     </div>
 
-  <script>
-    const electron = require('electron');
-    const {ipcRenderer} = electron;
+    <script>
+      const electron = require("electron");
+      const { ipcRenderer } = electron;
 
-    const form = document.querySelector('form');
-    form.addEventListener('submit', submitForm);
+      const form = document.querySelector("form");
+      form.addEventListener("submit", submitForm);
 
-    //************** functions *****************
-    function submitForm(e){
+      //************** functions *****************
+      function submitForm(e) {
         e.preventDefault();
-        const item =  document.querySelector('#item').value;
-        ipcRenderer.send('item:add', item); //sending data to server giving it a name and sending data along with it
-    }
-  </script> 
-   <script src="./js/materialize.js"></script>
-</body>
+        const item = document.querySelector("#item").value;
+        ipcRenderer.send("item:add", item); //sending data to server giving it a name and sending data along with it
+      }
+    </script>
+    <script src="./js/materialize.js"></script>
+  </body>
 </html>

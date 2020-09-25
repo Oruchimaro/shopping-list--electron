@@ -135,3 +135,17 @@
 Here I added the packager for debian installer so after that we can run
 
     4.npm run create-debian-installer
+
+# 8. Database (sqlite)
+
+    Install knex and sqlite3 packages
+
+    ```
+        $ npm install sqlite3
+        $ npm install knex
+    ```
+
+    Then we initiate knex module in main.js .
+    After that using ipc listeners we can emit events so we can use knex as ORM.
+
+    Remember to add a databse (sqlite file) so knex can connect to it.
